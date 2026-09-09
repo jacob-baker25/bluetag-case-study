@@ -1,7 +1,11 @@
+// path is built into Node and helps manipulate file paths
 const path = require("path");
+// express is the web framework
 const express = require("express");
+// express-session handles login sessions
 const session = require("express-session");
 
+// these import BlueTag's own code
 const db = require("./db");
 const seed = require("./seed");
 const { attachUser } = require("./middleware/auth");
@@ -10,6 +14,7 @@ const itemRoutes = require("./routes/items");
 
 seed();
 
+// creates the actual web application
 const app = express();
 const port = Number(process.env.PORT) || 3000;
 const sessionSecret = process.env.SESSION_SECRET || "bluetag-dev-session-secret";
